@@ -143,8 +143,9 @@
 <!-- block diagram -->
   
     <h1>Block Diagram</h1>
-<img src="static/images/pariscv_site.png" alt="Block Diagram" style="max-width: 50%; height: auto;">
-
+<div style="text-align: center;">
+    <img src="static/images/pariscv_site.png" alt="Block Diagram" style="max-width: 50%; height: auto;">
+</div>
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -259,7 +260,8 @@
 </section>
 <!-- End video carousel -->
 
-<h1>Usage</h1>
+<section id="usage">
+    <h1>Usage</h1>
 
     <h2>Getting Started</h2>
 
@@ -270,7 +272,7 @@
     <p>Before running the project, make sure you have the following dependencies installed:</p>
 
     <ul>
-        <li>Python3>= 3.9.5</li>
+        <li>Python3 >= 3.9.5</li>
         <li>matplotlib</li>
         <li><a href="https://github.com/riscv-collab/riscv-gnu-toolchain/">riscv toolchain</a></li>
     </ul>
@@ -317,10 +319,11 @@
     <p>Default ISA, MABI, source names are used as shown in pariscv.sh. But one can further specify the ISA flags supported, mabi and path to the source file through the following flags:</p>
     <pre>./pariscv.sh ISA=rv64gcv_zba_zbb_zbc MABI=lp64d SOURCE=../../main.c</pre>
 
-    <p>The output shows the total cycles, commonly used extensions and commonly used instructions within each extension.</p>
+    <p>The output shows the total cycles, commonly used extensions, and commonly used instructions within each extension.</p>
 
     <h3>Future work</h3>
-    <p> We intend to integrate the profiler with a core generator that supports coupling of custom acceleration using custom instruction or custom accelerator. </p></p>
+    <p>We intend to integrate the profiler with a core generator that supports coupling of custom acceleration using custom instruction or a custom accelerator.</p>
+</section>
 
 
 
