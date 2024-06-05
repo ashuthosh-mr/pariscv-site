@@ -259,7 +259,7 @@
   </div>
 </section>
 <!-- End video carousel -->
-
+  <section class="section hero is-light">
 <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Usage</h2>
@@ -294,19 +294,19 @@
 
           <ul>
            <li>
-             Clone the repository:
+             Clone the repository:<br>
              <code>
-               git clone htt[s://github.com/ashuthosh-mr/profiler.git
+               git clone https://github.com/ashuthosh-mr/profiler.git
              </code>
            </li>
             <li>
-              Navigate to the project directory:
+              Navigate to the project directory:<br>
               <code>
                 cd profiler
               </code>
             </li>
             <li>
-              Unzip the necessary library files:
+              Unzip the necessary library files:<br>
               <code>
                 unxz internal_folder.tar.xz
               </code> <br>
@@ -315,83 +315,51 @@
               </code>
             </li>
             <li>
-              Change the permissions of ext1 and pariscv.sh:
+              Change the permissions of ext1 and pariscv.sh:<br>
               <code>
                 chmod +x pariscv.sh ext1
               </code>
             </li>
+            <li>
+              To profile  the region of interest in the application, place this line before the kernel:<br>
+       <pre>
+            unsigned long cycles_start,cycles_end;
+            asm volatile ("rdcycle %0" : "=r" (cycles_start));
+        </pre>
+            </li>
+          <li>
+            Similarly, place this line after the kernel:<br>
+         <pre>
+            asm volatile ("rdcycle %0" : "=r" (cycles_end));
+            printf("Total cycles:%d\n",cycles_end-cycles_start);
+        </pre>           
+          </li>
           </ul>
           </p>
         </div>
       </div>
 </div>
-  
-<section id="usage">
-    <h1>Usage</h1>
+  </section>  
+ <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Profiling</h2>
 
-    <h2>Getting Started</h2>
-
-    <p>Welcome to our project! This guide will help you get started quickly.</p>
-
-    <h3>Dependencies</h3>
-
-    <p>Before running the project, make sure you have the following dependencies installed:</p>
-
-    <ul>
-        <li>Python3 >= 3.9.5</li>
-        <li>matplotlib</li>
-        <li><a href="https://github.com/riscv-collab/riscv-gnu-toolchain/">riscv toolchain</a></li>
-    </ul>
-
-    <p>After installing the dependencies, next install the profiler.</p>
-
-    <h3>Installing PARISCV</h3>
-
-    <p>To install PARISCV, follow these steps:</p>
-
-    <ol>
-        <li>Clone the repository:</li>
-        <code>git clone https://github.com/ashuthosh-mr/profiler.git</code>
-
-        <li>Navigate to the project directory:</li>
-        <code>cd profiler</code>
-
-        <li>Unzip the necessary library files:</li>
-        <code>unxz internal_folder.tar.xz</code><br>
-        <code>tar -xvf internal_folder.tar</code>
-
-        <li>Change the permission of ext1 and pariscv.sh:</li>
-        <code>chmod +x pariscv.sh</code><br>
-        <code>chmod +x ext1</code>
-
-        <li>To profile the region of interest in the application, place this line before the kernel:</li>
-        <pre>
-            unsigned long cycles_start,cycles_end;
-            asm volatile ("rdcycle %0" : "=r" (cycles_start));
-        </pre>
-
-        <li>Similarly, place this line after the kernel:</li>
-        <pre>
-            asm volatile ("rdcycle %0" : "=r" (cycles_end));
-            printf("Total cycles:%d\n",cycles_end-cycles_start);
-        </pre>
-    </ol>
-
-    <h3>Profiling</h3>
-
-    <p>To profile any given application, just run:</p>
-    <pre>./pariscv.sh</pre>
+    <p>To profile any given application, just run:</p> <br>
+    <code>./pariscv.sh</code> <br>
 
     <p>Default ISA, MABI, source names are used as shown in pariscv.sh. But one can further specify the ISA flags supported, mabi and path to the source file through the following flags:</p>
     <pre>./pariscv.sh ISA=rv64gcv_zba_zbb_zbc MABI=lp64d SOURCE=../../main.c</pre>
 
-    <p>The output shows the total cycles, commonly used extensions, and commonly used instructions within each extension.</p>
-
-    <h3>Future work</h3>
+    <p>The output shows the total cycles, commonly used extensions, and commonly used instructions within each extension.</p> <br>
+      </div>
+ </div>
+  
+  <section class="section hero is-light">
+  <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Future work</h2>
     <p>We intend to integrate the profiler with a core generator that supports coupling of custom acceleration using custom instruction or a custom accelerator.</p>
 </section>
-
-
 
 
 
