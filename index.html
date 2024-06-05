@@ -164,7 +164,8 @@
 <!-- End paper abstract -->
 <br>
 <!-- Image carousel -->
-<section class="hero is-small">
+<!--<section class="hero is-small"> -->
+   <section class="section hero is-light">
    <h2 class="title is-3">Results</h2>
   <p>
     Below shows the results obtained using our profiler for the applications of Embench-suite. Frequently executed instructions from common extensions are reported.
@@ -321,6 +322,7 @@
       </section>
                 <br>
                 <br>
+         <section class="section hero is-light">
         <h3 class="title is-4">Installing PARISCV</h3>
         <div class="content has-text-justified">
           <p>
@@ -373,19 +375,25 @@
         </div>
       </div>
 </div>
+  </section>
       <section class="section hero is-light">
  <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Profiling</h2>
-
-    <p>To profile any given application, just run:</p> 
+<ul>
+  
+<li>    <p>To profile any given application, just run:</p> 
     <code>./pariscv.sh</code> <br><br>
-
+</li>
+<li>  
     <p>Default ISA, MABI, source names are used as shown in pariscv.sh. But one can further specify the ISA flags supported, mabi and path to the source file through the following flags:</p>
     <code>./pariscv.sh ISA=rv64gcv_zba_zbb_zbc MABI=lp64d SOURCE=../../main.c</code>
-     <br>
+  </li>  
+  <br>
         <br>
-    <p>The output shows the total cycles, commonly used extensions, and commonly used instructions within each extension.</p> <br>
+ </ul>
+   
+  <p>The output shows the total cycles, commonly used extensions, and commonly used instructions within each extension.</p> <br>
       </div>
  </div>
       </section>
